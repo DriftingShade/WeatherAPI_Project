@@ -3,7 +3,7 @@ document.getElementById('searchForm').addEventListener('submit', async function(
     const city = document.getElementById('cityInput').value;
 
     try {
-        const weatherResponse = await fetch(`http://api.weatherapi.com/v1/current.json?key=78e4be2604034d3bbe2210118243005&q=${city}`);
+        const weatherResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=78e4be2604034d3bbe2210118243005&q=${city}`);
         if (!weatherResponse.ok) throw new Error('Weather API request failed');
         const weatherData = await weatherResponse.json();
         console.log(weatherData)

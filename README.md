@@ -1,6 +1,6 @@
 # **Welcome To My Weather API Project!**
 
-### **Version 1.0**
+### **Version 1.0 - May 30, 2024**
 
 - Basic functionality is working properly!
 - Users are able to search up a city and see the current weather conditions, temperature (in Faranheit only right now) and the current date/time of the city they searched up.
