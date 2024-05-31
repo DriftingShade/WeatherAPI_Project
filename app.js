@@ -21,12 +21,12 @@ document.getElementById('searchForm').addEventListener('submit', async function(
 
         const weatherIcon = document.getElementById('weatherIcon');
         weatherIcon.src = `http:${icon}`;
-        weatherIcon.style.display = 'block';  // Make the icon visible
+        weatherIcon.style.display = 'block';
     } catch (error) {
         console.error('Error fetching weather data:', error);
         document.getElementById('weatherDisplay').innerText = 'Could not fetch weather data. Please try again.';
         document.getElementById('timeDisplay').innerText = '';
-        document.getElementById('weatherIcon').style.display = 'none';  // Hide the icon in case of an error
+        document.getElementById('weatherIcon').style.display = 'none';
     }
 });
 
