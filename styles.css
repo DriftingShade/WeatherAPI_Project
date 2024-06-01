@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-size: cover;
+    color: white;
+}
+
+h2, h1 {
+    color: white;
+}
+
+#cityInput {
+    text-align: center;
+}

@@ -13,28 +13,30 @@ document.getElementById('searchForm').addEventListener('submit', async function(
         const localTime = weatherData.location.localtime;
         const name = weatherData.location.name;
         const icon = weatherData.current.condition.icon;
+        const feelsLike = weatherData.current.feelslike_f;
 
-        document.getElementById('cityName').innerText = `City Name: ${name}`;
-        document.getElementById('weatherDisplay').innerText = `Weather: ${weatherDescription}`;
-        document.getElementById('tempDisplay').innerText = `Temp: ${temperature}°F`;
-        document.getElementById('timeDisplay').innerText = `Current Time: ${formatDateTime(localTime)}`;
+
+        document.getElementById('cityName').innerText = name;
+        document.getElementById('weatherDisplay').innerText = weatherDescription;
+        document.getElementById('tempDisplay').innerText = `${temperature}°F`;
+        document.getElementById('timeDisplay').innerText = `As of ${formatDateTime(localTime)}`;
+        document.getElementById('feelsLikeTemp').innerText = `RealFeel: ${feelsLike}°F`;
 
         const weatherIcon = document.getElementById('weatherIcon');
         weatherIcon.src = `http:${icon}`;
-        weatherIcon.style.display = 'block';  // Make the icon visible
+        weatherIcon.style.display = 'block';
+
+        document.getElementById('weatherCard').style.display = 'block';  // Show the weather card
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        document.getElementById('weatherDisplay').innerText = 'Could not fetch weather data. Please try again.';
-        document.getElementById('timeDisplay').innerText = '';
-        document.getElementById('weatherIcon').style.display = 'none';  // Hide the icon in case of an error
+        document.getElementById('weatherCard').style.display = 'none';  // Hide the weather card in case of an error
     }
 });
 
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
     const options = { 
-        year: 'numeric', month: 'long', day: 'numeric', 
-        hour: 'numeric', minute: 'numeric', hour12: true 
+        hour: 'numeric', minute: 'numeric', hour12: true, timeZoneName: 'short' 
     };
     return new Intl.DateTimeFormat('en-US', options).format(date);
 }
